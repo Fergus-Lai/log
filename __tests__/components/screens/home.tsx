@@ -6,20 +6,22 @@ import React from 'react';
 import {render} from '@testing-library/react-native';
 import Home from '../../../src/components/screens/Home';
 
-test('render current date', () => {
-  const {getByTestId} = render(<Home />);
+describe('Home Screen', () => {
+  test('render current date', () => {
+    const {getByTestId} = render(<Home />);
 
-  const current = new Date();
+    const current = new Date();
 
-  const date = getByTestId('date');
-  expect(date.props.children).toBe(current.toLocaleDateString());
-});
+    const date = getByTestId('date');
+    expect(date.props.children).toBe(current.toLocaleDateString());
+  });
 
-test('render current time', () => {
-  const {getByTestId} = render(<Home />);
+  test('render current time', () => {
+    const {getByTestId} = render(<Home />);
 
-  const current = new Date();
+    const current = new Date();
 
-  const date = getByTestId('time');
-  expect(date.props.children).toBe(current.toLocaleTimeString());
+    const date = getByTestId('time');
+    expect(date.props.children).toBe(current.toLocaleTimeString());
+  });
 });
