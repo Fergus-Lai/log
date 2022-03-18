@@ -24,4 +24,10 @@ describe('Home Screen', () => {
     const date = getByTestId('time');
     expect(date.props.children).toBe(current.toLocaleTimeString());
   });
+
+  test('render floating button', () => {
+    const {getByTestId} = render(<Home />);
+    const floatingButton = getByTestId('floatingButton');
+    expect(floatingButton.props.children).toBeTruthy();
+  });
 });
