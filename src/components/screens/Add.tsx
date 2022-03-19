@@ -13,6 +13,7 @@ const Add = () => {
   const [name, setName] = useState<string | undefined>('');
   return (
     <View>
+      {/* Category Row */}
       <View style={styles.row}>
         <Text testID="categoryText">Category:</Text>
         <DropDownPicker
@@ -25,6 +26,7 @@ const Add = () => {
           testID="categoryPicker"
         />
       </View>
+      {/* Name Row */}
       <View style={styles.row}>
         <Text testID="nameText">Name:</Text>
         <TextInput
