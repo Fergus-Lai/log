@@ -3,13 +3,14 @@
  */
 
 import React, {useState} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, TextInput, View} from 'react-native';
 import DropDownPicker, {ValueType} from 'react-native-dropdown-picker';
 
 const Add = () => {
   const [categoryOpen, setCategoryOpen] = useState(false);
   const [category, setCategory] = useState<ValueType | null>(null);
   const [categories, setCategories] = useState<any[]>([]);
+  const [name, setName] = useState<string | undefined>('');
   return (
     <View>
       <View style={styles.row}>
@@ -24,6 +25,16 @@ const Add = () => {
           testID="categoryPicker"
         />
       </View>
+      <View style={styles.row}>
+        <Text testID="nameText">Name:</Text>
+        <TextInput
+          style={styles.input}
+          onChangeText={setName}
+          value={name}
+          placeholder="Name"
+          testID="nameField"
+        />
+      </View>
     </View>
   );
 };
@@ -33,6 +44,12 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-around',
+  },
+  input: {
+    flex: 2,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
   },
 });
 

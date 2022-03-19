@@ -16,4 +16,14 @@ describe('Add Screen', () => {
     const categoryPicker = getByTestId('categoryPicker');
     expect(categoryPicker).toBeTruthy();
   });
+
+  test('render name field', () => {
+    const {getByTestId} = render(<Add />);
+
+    const nameText = getByTestId('nameText');
+    expect(nameText.props.children).toBe('Name:');
+
+    const nameField = getByTestId('nameField');
+    expect(nameField).toBeTruthy();
+  });
 });
